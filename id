@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accepted IDs per Country</title>
+  <script>
+    function displayIDTypes() {
+      var countrySelect = document.getElementById("countrySelect");
+      var selectedCountry = countrySelect.value;
+      var idTypesContainer = document.getElementById("idTypesContainer");
+      
+      var data = {
+        "Afghanistan": [false, true, false],
+        "Albania": [true, true, true],
+        "Algeria": [true, true, true],
+      }; 
+      var idTypes = data[selectedCountry];
+      
+      var idTypesHTML = "";
+      
+      if (idTypes[0]) {
+        idTypesHTML += "<p>-ID Card</p>";
+      }
+      
+      if (idTypes[1]) {
+        idTypesHTML += "<p>-Passport</p>";
+      }
+      
+      if (idTypes[2]) {
+        idTypesHTML += "<p>-Driver License</p>";
+      }
+      
+      idTypesContainer.innerHTML = idTypesHTML;
+    }
+  </script>
+</head>
+<body>
+  <h1>Accepted IDs per Country</h1>
+  
+  <label for="countrySelect">Select a country:</label>
+  <select id="countrySelect" onchange="displayIDTypes()">
+  <option value="Click to select">Click to select</option>
+    <option value="Afghanistan">Afghanistan</option>
+    <option value="Albania">Albania</option>
+    <option value="Algeria">Algeria</option>
+
+  </select>
+ <br/> <br/>
+  We can accept the following ID types:
+  <div id="idTypesContainer"></div>
+</body>
+</html>
